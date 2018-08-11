@@ -1,0 +1,52 @@
+//Author: Oussoumane Mahaman Madani (GoMyC{}de)
+
+
+<?php
+/**
+ * Created by PhpStorm.
+ * User: comgoon
+ * Date: 8/11/18
+ * Time: 2:03 PM
+ */
+
+
+function extractTabByType ($tab, $type){ //declaring the function
+
+    /*
+     * "isType" is not a function in php.
+     * I check that on the internet I couldn't find it and my symfony is not recognizing "isType as and in-built function
+     * That's the reason, I create a function which I call "isType" to return the type of the elements of the array.
+     * "gettype" is an in-build function
+     */
+
+
+    function isType($m){
+        return gettype($m);
+    }
+
+    /*
+     * Note: With boolean type, it returns 1 when the <strong> bool element type </strong> is "true",
+     * otherwise, <strong> it doesn't return anything </strong>.
+     * Perhaps, it's my symfony that is misbehaving
+     */
+
+    foreach ($tab as $n){  //interating through the array elements
+
+        if (isType($n) === $type){  //checking each element type
+            $newArr [] = $n;        //building the new array the desired elements only
+        }
+    }
+    echo "<br>";
+    print_r($newArr);   //displaying the new array
+}
+
+
+if (function_exists('extractTabByType')) {  //checking if in writing the function name, the person hasn't made a mistake.
+
+    //In passing the $type parameter, be mindful. "integer" <> "int" or "double" <> "Double"
+    extractTabByType(["gomycode", 3, 5, '342', false, 544, 0, -0, 3.4, 5.0, "43", "1000coders", true], string);
+
+}else {
+
+    echo "function is not available.<br>";  //in case of typing error, this error message will pop out
+}
