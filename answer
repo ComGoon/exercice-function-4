@@ -27,7 +27,7 @@ function extractTabByType ($tab, $type){ //declaring the function
     /*
      * Note: With boolean type, it returns 1 when the <strong> bool element type </strong> is "true",
      * otherwise, <strong> it doesn't return anything </strong>.
-     * Perhaps, it's my symfony that is misbehaving
+     * Perhaps, it's my symfony that is misbehaving lol 😅
      */
 
     foreach ($tab as $n){  //interating through the array elements
